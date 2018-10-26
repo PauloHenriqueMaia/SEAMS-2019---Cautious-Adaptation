@@ -1,0 +1,35 @@
+@startuml
+hide footbox
+actor User
+participant System
+participant Component
+participant Aspect
+participant "LTSA Model Checker<&cog>" as Checker
+participant "Scenario2LTS<&cog>" as Transformer
+User -> System: S_g, R_g = specify_scenarios()
+System -> Transformer: LTS_g = derive(S_g)
+create Component
+User -> Component: S_l, R_l = specify_scenarios()
+activate Component
+Component -> Transformer: LTS_l = derive(S_l)
+Transformer -> Checker: satisfy = check(LTS_g || LTS_l, R_g)
+activate Checker
+Checker -> User: needs adaptation
+deactivate Checker
+alt not satisfy: Exception and Defiant Identification
+User -> Component: resist_change = change_request()
+deactivate Component
+alt resist_change: Cautious Adaptation
+create Aspect
+User -> Aspect: S_pointcut, S_advice = specify_aspect(S_g, S_l)
+activate Aspect
+Aspect -> Transformer: LTS_l || LTS_w = weave(S_l, S_pointcut, S_advice)
+Transformer -> Checker: satisfy = check(LTS_g || LTS_l || LTS_w, R_g)
+activate Checker
+Transformer -> Checker: satisfy = check(LTS_g || LTS_l || LTS_w, R_l)
+end
+end
+Checker -> User: cautious adaptation results
+deactivate Checker
+deactivate Aspect
+@enduml

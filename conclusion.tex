@@ -1,0 +1,16 @@
+\section{Conclusion and Future Work}
+
+% Generalise the problem
+%Although we have only described two possible scenarios, 
+%The {\em defiant} problem may happen to various applications including cyber-physical systems, service-based systems, cyber security, system of systems, and cloud computing. The problem is challenging to predict at design time since each component has only local awareness of the system, restricted to its own behaviour model. However, when the components interact with each other at runtime, a global awareness of the system is needed where the interaction among the components cannot be anticipated at design time, due to the unpredictable human behaviour, possible component failures or on-the-fly intercommunication between a highly inter-operable and decoupled systems. Furthermore, the decisions about system conflict resolutions have been taken at design time.   
+
+
+In this paper we have proposed a novel approach to address the problem of components that were not developed to be adapted during their execution,  but which must then participate in a system-of-systems that does requires them to adapt . We called these components {\it defiant}. Our approach supports what we call  {\it cautious} adaptation, in which wrappers are used to  deal with exceptional conditions. These wrappers specify how the components should behave in case of exceptional conditions. They are woven into the components, and our approach guarantees the satisfaction of both normal and exceptional conditions. The exceptional conditions are identified from the counter examples provided by a model checker when verifying properties of the system-of-systems in which the components participate. To illustrate the work, we use an example of a drone payload organ delivery application.
+
+Currently, we are extending the approach to support on-the-fly identification of new exceptional conditions due to emergent behaviours and their respective wrappers. We are also evaluating the work in other large-scale scenarios.
+
+
+%Unlike traditional adaptation or self-adaptation approaches, the cautious adaptation makes no assumption that the defiant component can be changed directly. Instead, its functionality needs to be maintained for the normal condition, and only modified when the exceptional conditions are identified in the what-if scenarios. Furthermore, the actions of the defiant component required to fulfill the exceptional conditions also need to satisfy their new expectations, which may not be automatically satisfied by their original design.
+
+%Using an illustrative example, we have verified the wrapper aspect through a model checker against several cautious adaptation conditions. In the future, we will implement the wrapper aspects for large-scale examples.
+

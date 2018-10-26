@@ -1,0 +1,15 @@
+@startuml
+skinparam usecase {
+	BorderStyle dashed
+}
+package "Cautious Adaptation" as CA {
+	[Defiant Component] as DC
+	[Wrapper Aspect] as W
+}
+DC <-r- W: weave
+(Normal Condition) as NC
+(Exceptional Condition) as EC
+DC .d.> NC: "<<check>>\nsatisfy"
+CA .d.> EC: "<<check>>\nsatisfy"
+DC ..> EC: "<<check>>\nfail"
+@enduml

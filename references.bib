@@ -1,0 +1,706 @@
+%%% ====================================================================
+%%%  BibTeX-file{
+%%%     author          = "Gerry Murray",
+%%%     version         = "1.2",
+%%%     date            = "2 April 2012",
+%%%     filename        = "acmsmall-sample-bibfile.bib",
+%%%     address         = "ACM, NY",
+%%%     email           = "murray at hq.acm.org",
+%%%     codetable       = "ISO/ASCII",
+%%%     keywords        = "ACM Reference Format, bibliography, citation, references",
+%%%     supported       = "yes",
+%%%     docstring       = "This BibTeX database file contains 'bibdata' entries
+%%%                        that 'match' the examples provided in the Specifications Document
+%%%                        AND, also, 'legacy'-type bibs. It should assist authors in
+%%%                        choosing the 'correct' at-bibtype and necessary bib-fields
+%%%                        so as to obtain the appropriate ACM Reference Format output.
+%%%                        It also contains many 'Standard Abbreviations'. "
+%%%  }
+%%% ====================================================================
+
+% Journals
+
+% First the Full Name is given, then the abbreviation used in the AMS Math
+% Reviews, with an indication if it could not be found there.
+% Note the 2nd overwrites the 1st, so swap them if you want the full name.
+
+ %{AMS}
+ @String{AMSTrans = "American Mathematical Society Translations" }
+ @String{AMSTrans = "Amer. Math. Soc. Transl." }
+ @String{BullAMS = "Bulletin of the American Mathematical Society" }
+ @String{BullAMS = "Bull. Amer. Math. Soc." }
+ @String{ProcAMS = "Proceedings of the American Mathematical Society" }
+ @String{ProcAMS = "Proc. Amer. Math. Soc." }
+ @String{TransAMS = "Transactions of the American Mathematical Society" }
+ @String{TransAMS = "Trans. Amer. Math. Soc." }
+
+ %ACM
+ @String{CACM = "Communications of the {ACM}" }
+ @String{CACM = "Commun. {ACM}" }
+ @String{CompServ = "Comput. Surveys" }
+ @String{JACM = "J. ACM" }
+ @String{ACMMathSoft = "{ACM} Transactions on Mathematical Software" }
+ @String{ACMMathSoft = "{ACM} Trans. Math. Software" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newsletter" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newslett." }
+
+ @String{AmerSocio = "American Journal of Sociology" }
+ @String{AmerStatAssoc = "Journal of the American Statistical Association" }
+ @String{AmerStatAssoc = "J. Amer. Statist. Assoc." }
+ @String{ApplMathComp = "Applied Mathematics and Computation" }
+ @String{ApplMathComp = "Appl. Math. Comput." }
+ @String{AmerMathMonthly = "American Mathematical Monthly" }
+ @String{AmerMathMonthly = "Amer. Math. Monthly" }
+ @String{BIT = "{BIT}" }
+ @String{BritStatPsych = "British Journal of Mathematical and Statistical
+          Psychology" }
+ @String{BritStatPsych = "Brit. J. Math. Statist. Psych." }
+ @String{CanMathBull = "Canadian Mathematical Bulletin" }
+ @String{CanMathBull = "Canad. Math. Bull." }
+ @String{CompApplMath = "Journal of Computational and Applied Mathematics" }
+ @String{CompApplMath = "J. Comput. Appl. Math." }
+ @String{CompPhys = "Journal of Computational Physics" }
+ @String{CompPhys = "J. Comput. Phys." }
+ @String{CompStruct = "Computers and Structures" }
+ @String{CompStruct = "Comput. \& Structures" }
+ @String{CompJour = "The Computer Journal" }
+ @String{CompJour = "Comput. J." }
+ @String{CompSysSci = "Journal of Computer and System Sciences" }
+ @String{CompSysSci = "J. Comput. System Sci." }
+ @String{Computing = "Computing" }
+ @String{ContempMath = "Contemporary Mathematics" }
+ @String{ContempMath = "Contemp. Math." }
+ @String{Crelle = "Crelle's Journal" }
+ @String{GiornaleMath = "Giornale di Mathematiche" }
+ @String{GiornaleMath = "Giorn. Mat." } % didn't find in AMS MR., ibid.
+
+ %IEEE
+ @String{Computer = "{IEEE} Computer" }
+ @String{IEEETransComp = "{IEEE} Transactions on Computers" }
+ @String{IEEETransComp = "{IEEE} Trans. Comput." }
+ @String{IEEETransAC = "{IEEE} Transactions on Automatic Control" }
+ @String{IEEETransAC = "{IEEE} Trans. Automat. Control" }
+ @String{IEEESpec = "{IEEE} Spectrum" } % didn't find in AMS MR
+ @String{ProcIEEE = "Proceedings of the {IEEE}" }
+ @String{ProcIEEE = "Proc. {IEEE}" } % didn't find in AMS MR
+ @String{IEEETransAeroElec = "{IEEE} Transactions on Aerospace and Electronic
+     Systems" }
+ @String{IEEETransAeroElec = "{IEEE} Trans. Aerospace Electron. Systems" }
+
+ @String{IMANumerAna = "{IMA} Journal of Numerical Analysis" }
+ @String{IMANumerAna = "{IMA} J. Numer. Anal." }
+ @String{InfProcLet = "Information Processing Letters" }
+ @String{InfProcLet = "Inform. Process. Lett." }
+ @String{InstMathApp = "Journal of the Institute of Mathematics and
+     its Applications" }
+ @String{InstMathApp = "J. Inst. Math. Appl." }
+ @String{IntControl = "International Journal of Control" }
+ @String{IntControl = "Internat. J. Control" }
+ @String{IntNumerEng = "International Journal for Numerical Methods in
+     Engineering" }
+ @String{IntNumerEng = "Internat. J. Numer. Methods Engrg." }
+ @String{IntSuper = "International Journal of Supercomputing Applications" }
+ @String{IntSuper = "Internat. J. Supercomputing Applic." } % didn't find
+%% in AMS MR
+ @String{Kibernetika = "Kibernetika" }
+ @String{JResNatBurStand = "Journal of Research of the National Bureau
+     of Standards" }
+ @String{JResNatBurStand = "J. Res. Nat. Bur. Standards" }
+ @String{LinAlgApp = "Linear Algebra and its Applications" }
+ @String{LinAlgApp = "Linear Algebra Appl." }
+ @String{MathAnaAppl = "Journal of Mathematical Analysis and Applications" }
+ @String{MathAnaAppl = "J. Math. Anal. Appl." }
+ @String{MathAnnalen = "Mathematische Annalen" }
+ @String{MathAnnalen = "Math. Ann." }
+ @String{MathPhys = "Journal of Mathematical Physics" }
+ @String{MathPhys = "J. Math. Phys." }
+ @String{MathComp = "Mathematics of Computation" }
+ @String{MathComp = "Math. Comp." }
+ @String{MathScand = "Mathematica Scandinavica" }
+ @String{MathScand = "Math. Scand." }
+ @String{TablesAidsComp = "Mathematical Tables and Other Aids to Computation" }
+ @String{TablesAidsComp = "Math. Tables Aids Comput." }
+ @String{NumerMath = "Numerische Mathematik" }
+ @String{NumerMath = "Numer. Math." }
+ @String{PacificMath = "Pacific Journal of Mathematics" }
+ @String{PacificMath = "Pacific J. Math." }
+ @String{ParDistComp = "Journal of Parallel and Distributed Computing" }
+ @String{ParDistComp = "J. Parallel and Distrib. Comput." } % didn't find
+%% in AMS MR
+ @String{ParComputing = "Parallel Computing" }
+ @String{ParComputing = "Parallel Comput." }
+ @String{PhilMag = "Philosophical Magazine" }
+ @String{PhilMag = "Philos. Mag." }
+ @String{ProcNAS = "Proceedings of the National Academy of Sciences
+                    of the USA" }
+ @String{ProcNAS = "Proc. Nat. Acad. Sci. U. S. A." }
+ @String{Psychometrika = "Psychometrika" }
+ @String{QuartMath = "Quarterly Journal of Mathematics, Oxford, Series (2)" }
+ @String{QuartMath = "Quart. J. Math. Oxford Ser. (2)" }
+ @String{QuartApplMath = "Quarterly of Applied Mathematics" }
+ @String{QuartApplMath = "Quart. Appl. Math." }
+ @String{RevueInstStat = "Review of the International Statisical Institute" }
+ @String{RevueInstStat = "Rev. Inst. Internat. Statist." }
+
+ %SIAM
+ @String{JSIAM = "Journal of the Society for Industrial and Applied
+     Mathematics" }
+ @String{JSIAM = "J. Soc. Indust. Appl. Math." }
+ @String{JSIAMB = "Journal of the Society for Industrial and Applied
+     Mathematics, Series B, Numerical Analysis" }
+ @String{JSIAMB = "J. Soc. Indust. Appl. Math. Ser. B Numer. Anal." }
+ @String{SIAMAlgMeth = "{SIAM} Journal on Algebraic and Discrete Methods" }
+ @String{SIAMAlgMeth = "{SIAM} J. Algebraic Discrete Methods" }
+ @String{SIAMAppMath = "{SIAM} Journal on Applied Mathematics" }
+ @String{SIAMAppMath = "{SIAM} J. Appl. Math." }
+ @String{SIAMComp = "{SIAM} Journal on Computing" }
+ @String{SIAMComp = "{SIAM} J. Comput." }
+ @String{SIAMMatrix = "{SIAM} Journal on Matrix Analysis and Applications" }
+ @String{SIAMMatrix = "{SIAM} J. Matrix Anal. Appl." }
+ @String{SIAMNumAnal = "{SIAM} Journal on Numerical Analysis" }
+ @String{SIAMNumAnal = "{SIAM} J. Numer. Anal." }
+ @String{SIAMReview = "{SIAM} Review" }
+ @String{SIAMReview = "{SIAM} Rev." }
+ @String{SIAMSciStat = "{SIAM} Journal on Scientific and Statistical
+     Computing" }
+ @String{SIAMSciStat = "{SIAM} J. Sci. Statist. Comput." }
+
+ @String{SoftPracExp = "Software Practice and Experience" }
+ @String{SoftPracExp = "Software Prac. Experience" } % didn't find in AMS MR
+ @String{StatScience = "Statistical Science" }
+ @String{StatScience = "Statist. Sci." }
+ @String{Techno = "Technometrics" }
+ @String{USSRCompMathPhys = "{USSR} Computational Mathematics and Mathematical
+     Physics" }
+ @String{USSRCompMathPhys = "{U. S. S. R.} Comput. Math. and Math. Phys." }
+ @String{VLSICompSys = "Journal of {VLSI} and Computer Systems" }
+ @String{VLSICompSys = "J. {VLSI} Comput. Syst." }
+ @String{ZAngewMathMech = "Zeitschrift fur Angewandte Mathematik und
+     Mechanik" }
+ @String{ZAngewMathMech = "Z. Angew. Math. Mech." }
+ @String{ZAngewMathPhys = "Zeitschrift fur Angewandte Mathematik und Physik" }
+ @String{ZAngewMathPhys = "Z. Angew. Math. Phys." }
+
+% Publishers % ================================================= |
+
+ @String{Academic = "Academic Press" }
+ @String{ACMPress = "{ACM} Press" }
+ @String{AdamHilger = "Adam Hilger" }
+ @String{AddisonWesley = "Addison-Wesley" }
+ @String{AllynBacon = "Allyn and Bacon" }
+ @String{AMS = "American Mathematical Society" }
+ @String{Birkhauser = "Birkha{\"u}ser" }
+ @String{CambridgePress = "Cambridge University Press" }
+ @String{Chelsea = "Chelsea" }
+ @String{ClaredonPress = "Claredon Press" }
+ @String{DoverPub = "Dover Publications" }
+ @String{Eyolles = "Eyolles" }
+ @String{HoltRinehartWinston = "Holt, Rinehart and Winston" }
+ @String{Interscience = "Interscience" }
+ @String{JohnsHopkinsPress = "The Johns Hopkins University Press" }
+ @String{JohnWileySons = "John Wiley and Sons" }
+ @String{Macmillan = "Macmillan" }
+ @String{MathWorks = "The Math Works Inc." }
+ @String{McGrawHill = "McGraw-Hill" }
+ @String{NatBurStd = "National Bureau of Standards" }
+ @String{NorthHolland = "North-Holland" }
+ @String{OxfordPress = "Oxford University Press" }  %address Oxford or London?
+ @String{PergamonPress = "Pergamon Press" }
+ @String{PlenumPress = "Plenum Press" }
+ @String{PrenticeHall = "Prentice-Hall" }
+ @String{SIAMPub = "{SIAM} Publications" }
+ @String{Springer = "Springer-Verlag" }
+ @String{TexasPress = "University of Texas Press" }
+ @String{VanNostrand = "Van Nostrand" }
+ @String{WHFreeman = "W. H. Freeman and Co." }
+
+%Entries
+
+
+
+@article{Young‐Gab:2011,
+author = {Kim Young‐Gab and Cha Sungdeok},
+title = {Threat scenario based security risk analysis using use case modeling in information systems},
+journal = {Security and Communication Networks},
+volume = {5},
+number = {3},
+pages = {293-300},
+year = {2011},
+doi = {10.1002/sec.321},
+}
+
+@article{Ban:2014,
+author = {Xiaofang Ban and Xin Tong},
+title = {A Scenario-based Information Security Risk Evaluation Method},
+journal = {International Journal of Security and Its Applications},
+volume = {8},
+number = {5},
+pages = {21-30},
+year = {2014},
+}
+
+@inproceedings{filieri2011,
+ author = {Filieri, Antonio and Ghezzi, Carlo and Tamburrelli, Giordano},
+ title = {Run-time Efficient Probabilistic Model Checking},
+ booktitle = {Proceedings of the 33rd International Conference on Software Engineering},
+ series = {ICSE '11},
+ year = {2011},
+ isbn = {978-1-4503-0445-0},
+ location = {Waikiki, Honolulu, HI, USA},
+ pages = {341--350},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/1985793.1985840},
+ doi = {10.1145/1985793.1985840},
+ acmid = {1985840},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {discrete time markov chains, run-time model checking},
+} 
+
+@inproceedings{barbosa:2017,
+     author = {Barbosa, Davi Monteiro and de Moura Lima, R\^{o}mulo Gadelha and Maia, Paulo Henrique Mendes and Junior, Evil\'{a}sio Costa},
+     title = {[email protected]: A Tool for Runtime Monitoring and Verification of Self-adaptive Systems},
+     booktitle = {Proceedings of the 12th International Symposium on Software Engineering for Adaptive and Self-Managing Systems},
+     series = {SEAMS '17},
+     year = {2017},
+     isbn = {978-1-5386-1550-8},
+     location = {Buenos Aires, Argentina},
+     pages = {24--30},
+     numpages = {7},
+     doi = {10.1109/SEAMS.2017.18},
+     acmid = {3105508},
+     publisher = {IEEE Press},
+     address = {Piscataway, NJ, USA},
+ }
+ 
+ @article{arcaini:2017,
+     author = {Arcaini, Paolo and Riccobene, Elvinia and Scandurra, Patrizia},
+     title = {Formal Design and Verification of Self-Adaptive Systems with Decentralized Control},
+     journal = {ACM Trans. Auton. Adapt. Syst.},
+     issue_date = {February 2017},
+     volume = {11},
+     number = {4},
+     month = jan,
+     year = {2017},
+     issn = {1556-4665},
+     pages = {25:1--25:35},
+     articleno = {25},
+     numpages = {35},
+     acmid = {3019598},
+     publisher = {ACM},
+     address = {New York, NY, USA},
+} 
+
+@Article{uchitel:2013,
+author="Uchitel, Sebastian
+and Alrajeh, Dalal
+and Ben-David, Shoham
+and Braberman, Victor
+and Chechik, Marsha
+and De Caso, Guido
+and D'Ippolito, Nicolas
+and Fischbein, Dario
+and Garbervetsky, Diego
+and Kramer, Jeff
+and Russo, Alessandra
+and Sibay, German",
+title="Supporting incremental behaviour model elaboration",
+journal="Computer Science - Research and Development",
+year="2013",
+month="Nov",
+day="01",
+volume="28",
+number="4",
+pages="279--293",
+issn="1865-2042",
+doi="10.1007/s00450-012-0233-1",
+url="https://doi.org/10.1007/s00450-012-0233-1"
+}
+
+@INPROCEEDINGS{Mathlouthi:2017, 
+author={W. Mathlouthi and N. B. B. Saoud}, 
+booktitle={2017 IEEE 5th International Conference on Future Internet of Things and Cloud (FiCloud)}, 
+title={Flexible Composition of System of Systems on Cloud Federation}, 
+year={2017}, 
+volume={}, 
+number={}, 
+pages={358-365}, 
+ISSN={}, 
+month={Aug},}
+
+@ARTICLE{Cervantes:2018, 
+author={F. Cervantes and F. Ramos and L. F. Gutiérrez and M. Occello and J. P. Jamont}, 
+journal={IEEE Systems Journal}, 
+title={A New Approach for the Composition of Adaptive Pervasive Systems}, 
+year={2018}, 
+volume={12}, 
+number={2}, 
+pages={1709-1721}, 
+ISSN={1932-8184}, 
+month={June},
+}
+
+@InProceedings{Cervantes:2014,
+author="Cervantes, Francisco
+and Occello, Michel
+and Ramos, F{\'e}lix
+and Jamont, Jean-Paul",
+editor="Swi{\k{a}}tek, Jerzy
+and Grzech, Adam
+and Swi{\k{a}}tek, Pawe{\l}
+and Tomczak, Jakub M.",
+title="Toward Self-adaptive Ecosystems of Services in Dynamic Environments",
+booktitle="Advances in Systems Science",
+year="2014",
+publisher="Springer International Publishing",
+address="Cham",
+pages="671--680",
+isbn="978-3-319-01857-7"
+}
+
+@techreport{Waetzoldt:2015,
+	author = {W\"{a}tzoldt, Sebastian and Giese, Holger},
+	title = {{Modeling Collaborations in Self-Adaptive Systems of Systems--Terms, Characteristics, Requirements, and Scenarios}},
+	number = {96},
+	month = {April},
+	year = {2015},
+	institution = {Hasso Plattner Institute at the University of Potsdam}
+}
+
+@INPROCEEDINGS{Wachholder:2015, 
+author={D. Wachholder and C. Stary}, 
+booktitle={2015 10th System of Systems Engineering Conference (SoSE)}, 
+title={Enabling emergent behavior in systems-of-systems through bigraph-based modeling}, 
+year={2015}, 
+volume={}, 
+number={}, 
+pages={334-339}, 
+doi={10.1109/SYSOSE.2015.7151954}, 
+ISSN={}, 
+month={May},}
+
+@article{John:2004,
+author = {Hsu John C. and Butterfield Marion},
+title = {Modeling Emergent Behavior for Systems‐of‐Systems},
+journal = {INCOSE International Symposium},
+volume = {17},
+number = {1},
+pages = {1811-1821},
+doi = {10.1002/j.2334-5837.2007.tb02985.x},
+url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/j.2334-5837.2007.tb02985.x},
+eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/j.2334-5837.2007.tb02985.x},
+abstract = {Abstract Emergent behaviors exist in biological systems, physical systems and human performance. Little is currently known about constructing an interoperable network of systems and the incorporation of known emergent behaviors. Definitions of emergence are introduced. The four principles of emergence are outlined and discussed. Conceptual agent‐based modeling is discussed to illustrate possible modeling approaches for identifying and assessing emergent behaviors according to the emergent principles. The agent‐based simulation will be the inputs to system‐of‐systems (SoS) architectural models. Neural network artificial intelligence may be needed to assist our understanding of the emergent behaviors during operations of SoS and the associated system architecture model development. It is recommended that the integration of agent‐based simulation and neural network methods with SysML be considered.}
+}
+
+@inproceedings{Mittal:2016,
+ author = {Mittal, Saurabh and Cane, Sheila A.},
+ title = {Contextualizing Emergent Behavior in System of Systems Engineering Using Gap Analysis},
+ booktitle = {Proceedings of the Modeling and Simulation of Complexity in Intelligent, Adaptive and Autonomous Systems 2016 (MSCIAAS 2016) and Space Simulation for Planetary Space Exploration (SPACE 2016)},
+ series = {MSCIAAS '16},
+ year = {2016},
+ isbn = {978-1-5108-2319-8},
+ location = {Pasadena, California},
+ pages = {12:1--12:9},
+ articleno = {12},
+ numpages = {9},
+ url = {http://dl.acm.org/citation.cfm?id=2962664.2962676},
+ acmid = {2962676},
+ publisher = {Society for Computer Simulation International},
+ address = {San Diego, CA, USA},
+ keywords = {complex systems, emergent behavior, gap analysis, system-of-system},
+}
+
+@inproceedings{DBLP:conf/re/SalifuYN07,
+  author    = {Mohammed Salifu and
+               Yijun Yu and
+               Bashar Nuseibeh},
+  title     = {Specifying Monitoring and Switching Problems in Context},
+  booktitle = {{RE}},
+  pages     = {211--220},
+  publisher = {{IEEE} Computer Society},
+  year      = {2007}
+}
+
+@book{DBLP:books/daglib/0022946,
+  author    = {Michael A. Jackson},
+  title     = {Problem Frames - Analysing and Structuring Software Development Problems},
+  publisher = {Pearson Education},
+  year      = {2000}
+}
+
+@inproceedings{DBLP:conf/dagstuhl/ChengLGIMABBBCSDFGGGKKKLMMMPSTTWW09,
+  author    = {Betty H. C. Cheng and
+               Rog{\'{e}}rio de Lemos and
+               Holger Giese and
+               Paola Inverardi and
+               Jeff Magee and
+               Jesper Andersson and
+               Basil Becker and
+               Nelly Bencomo and
+               Yuriy Brun and
+               Bojan Cukic and
+               Giovanna Di Marzo Serugendo and
+               Schahram Dustdar and
+               Anthony Finkelstein and
+               Cristina Gacek and
+               Kurt Geihs and
+               Vincenzo Grassi and
+               Gabor Karsai and
+               Holger M. Kienle and
+               Jeff Kramer and
+               Marin Litoiu and
+               Sam Malek and
+               Raffaela Mirandola and
+               Hausi A. M{\"{u}}ller and
+               Sooyong Park and
+               Mary Shaw and
+               Matthias Tichy and
+               Massimo Tivoli and
+               Danny Weyns and
+               Jon Whittle},
+  title     = {Software Engineering for Self-Adaptive Systems: {A} Research Roadmap},
+  booktitle = {Software Engineering for Self-Adaptive Systems},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {5525},
+  pages     = {1--26},
+  publisher = {Springer},
+  year      = {2009}
+}
+
+@article{Kiczales:2001,
+ author = {Kiczales, Gregor and Hilsdale, Erik},
+ title = {Aspect-oriented Programming},
+ journal = {SIGSOFT Softw. Eng. Notes},
+ issue_date = {Sept. 2001},
+ volume = {26},
+ number = {5},
+ month = sep,
+ year = {2001},
+ issn = {0163-5948},
+ pages = {313--},
+ url = {http://doi.acm.org/10.1145/503271.503260},
+ doi = {10.1145/503271.503260},
+ acmid = {503260},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {AspectC, AspectJ, aspect-oriented software design, aspects, concerns, cross cutting, modularity},
+} 
+
+@INPROCEEDINGS{Giammarco:2017, 
+author={K. Giammarco}, 
+booktitle={2017 12th System of Systems Engineering Conference (SoSE)}, 
+title={Practical modeling concepts for engineering emergence in systems of systems}, 
+year={2017}, 
+volume={}, 
+number={}, 
+pages={1-6}, 
+doi={10.1109/SYSOSE.2017.7994977}, 
+ISSN={}, 
+month={June},}
+
+@article{Uchitel:2003,
+ author = {Uchitel, Sebastian and Kramer, Jeff and Magee, Jeff},
+ title = {Synthesis of Behavioral Models from Scenarios},
+ journal = {IEEE Trans. Softw. Eng.},
+ issue_date = {February 2003},
+ volume = {29},
+ number = {2},
+ month = feb,
+ year = {2003},
+ issn = {0098-5589},
+ pages = {99--115},
+ numpages = {17},
+ url = {https://doi.org/10.1109/TSE.2003.1178048},
+ doi = {10.1109/TSE.2003.1178048},
+ acmid = {642980},
+ publisher = {IEEE Press},
+ address = {Piscataway, NJ, USA},
+ } 
+ 
+ 
+@INPROCEEDINGS{Xu07, 
+author={D. Xu and I. Alsmadi and W. Xu}, 
+booktitle={31st Annual International Computer Software and Applications Conference (COMPSAC 2007)}, 
+title={Model Checking Aspect-Oriented Design Specification}, 
+year={2007}, 
+volume={1}, 
+number={}, 
+pages={491-500}, 
+doi={10.1109/COMPSAC.2007.152}, 
+ISSN={0730-3157}, 
+month={July},}
+ 
+ @inproceedings{Katz:2008:IAI:1394496.1394500,
+ author = {Katz, Emilia and Katz, Shmuel},
+ title = {Incremental Analysis of Interference Among Aspects},
+ booktitle = {Proceedings of the 7th Workshop on Foundations of Aspect-oriented Languages},
+ series = {FOAL '08},
+ year = {2008},
+ isbn = {978-1-60558-110-1},
+ location = {Brussels, Belgium},
+ pages = {29--38},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/1394496.1394500},
+ doi = {10.1145/1394496.1394500},
+ acmid = {1394500},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {aspects, detection, interference, model-checking, specification},
+} 
+
+@article{Maier98SOS,
+author = {W. Maier, Mark},
+year = {1998},
+month = {01},
+pages = {},
+title = {Architecting Principles for System of Systems},
+volume = {1},
+booktitle = {Systems Engineering}
+}
+
+@inproceedings{SilvaSouza:2011:ARA:1988008.1988018,
+ author = {Silva Souza, V\'{\i}tor E. and Lapouchnian, Alexei and Robinson, William N. and Mylopoulos, John},
+ title = {Awareness Requirements for Adaptive Systems},
+ booktitle = {Proceedings of the 6th International Symposium on Software Engineering for Adaptive and Self-Managing Systems},
+ series = {SEAMS '11},
+ year = {2011},
+ isbn = {978-1-4503-0575-4},
+ location = {Waikiki, Honolulu, HI, USA},
+ pages = {60--69},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/1988008.1988018},
+ doi = {10.1145/1988008.1988018},
+ acmid = {1988018},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {adaptive systems, awareness, modeling, monitoring, requirements engineering},
+} 
+
+@book{Magee:2006:CSM:1076396,
+ author = {Magee, Jeff and Kramer, Jeff},
+ title = {Concurrency: State Models and Java Programs},
+ year = {2006},
+ isbn = {0470093552, 9780470093559},
+ edition = {2nd},
+ publisher = {Wiley Publishing},
+} 
+
+
+@inproceedings{DBLP:conf/dagstuhl/LemosGGGALSWBBB13,
+  author    = {Rog{\'{e}}rio de Lemos and
+               David Garlan and
+               Carlo Ghezzi and
+               Holger Giese and
+               Jesper Andersson and
+               Marin Litoiu and
+               Bradley R. Schmerl and
+               Danny Weyns and
+               Luciano Baresi and
+               Nelly Bencomo and
+               Yuriy Brun and
+               Javier C{\'{a}}mara and
+               Radu Calinescu and
+               Myra B. Cohen and
+               Alessandra Gorla and
+               Vincenzo Grassi and
+               Lars Grunske and
+               Paola Inverardi and
+               Jean{-}Marc J{\'{e}}z{\'{e}}quel and
+               Sam Malek and
+               Raffaela Mirandola and
+               Marco Mori and
+               Hausi A. M{\"{u}}ller and
+               Romain Rouvoy and
+               Cec{\'{\i}}lia M. F. Rubira and
+               {\'{E}}ric Rutten and
+               Mary Shaw and
+               Giordano Tamburrelli and
+               Gabriel Tamura and
+               Norha M. Villegas and
+               Thomas Vogel and
+               Franco Zambonelli},
+  title     = {Software Engineering for Self-Adaptive Systems: Research Challenges
+               in the Provision of Assurances},
+  booktitle = {Software Engineering for Self-Adaptive Systems {III.} Assurances -
+               International Seminar, Dagstuhl Castle, Germany, December 15-19, 2013,
+               Revised Selected and Invited Papers},
+  pages     = {3--30},
+  year      = {2013},
+  }
+  
+@proceedings{DBLP:conf/dagstuhl/2013adaptive,
+  editor    = {Rog{\'{e}}rio de Lemos and
+               David Garlan and
+               Carlo Ghezzi and
+               Holger Giese},
+  title     = {Software Engineering for Self-Adaptive Systems {III.} Assurances -
+               International Seminar, Dagstuhl Castle, Germany, December 15-19, 2013,
+               Revised Selected and Invited Papers},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {9640},
+  publisher = {Springer},
+  year      = {2017},
+  url       = {https://doi.org/10.1007/978-3-319-74183-3},
+  doi       = {10.1007/978-3-319-74183-3},
+  isbn      = {978-3-319-74182-6},
+  timestamp = {Tue, 23 Jan 2018 14:16:43 +0100},
+  biburl    = {https://dblp.org/rec/bib/conf/dagstuhl/2013adaptive},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@misc{fowlerioc,
+  author={Martin Fowler},
+  title = {Inversion of Control Containers and the Dependency Injection Pattern},
+  howpublished = {\url{http://www.martinfowler.com/articles/injection.html}},
+  note = {Accessed: 2015-07-23},
+  year = {2004}
+}
+
+@inproceedings{Wermelinger:2008:AEE:1370750.1370783,
+ author = {Wermelinger, Michel and Yu, Yijun},
+ title = {Analyzing the Evolution of Eclipse Plugins},
+ booktitle = {Proceedings of the 2008 International Working Conference on Mining Software Repositories},
+ series = {MSR '08},
+ year = {2008},
+ isbn = {978-1-60558-024-1},
+ location = {Leipzig, Germany},
+ pages = {133--136},
+ numpages = {4},
+ url = {http://doi.acm.org/10.1145/1370750.1370783},
+ doi = {10.1145/1370750.1370783},
+ acmid = {1370783},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {architectural evolution},
+} 
+
+@article{szvetits:2016,
+     author = {Szvetits, Michael and Zdun, Uwe},
+     title = {Systematic Literature Review of the Objectives, Techniques, Kinds, and Architectures of Models at Runtime},
+     journal = {Softw. Syst. Model.},
+     issue_date = {February  2016},
+     volume = {15},
+     number = {1},
+     month = feb,
+     year = {2016},
+     issn = {1619-1366},
+     pages = {31--69},
+     numpages = {39},
+     doi = {10.1007/s10270-013-0394-9},
+     acmid = {2890219},
+     publisher = {Springer-Verlag New York, Inc.},
+     address = {Secaucus, NJ, USA},
+     keywords = {Literature review, Models, Runtime},
+} 
+
+@inproceedings{KNP11,
+author={M. Kwiatkowska and G. Norman and D. Parker},
+title={{PRISM} 4.0: Verification of Probabilistic Real-time Systems},
+booktitle={Proc. 23rd International Conference on Computer Aided Verification (CAV'11)},
+year={2011},
+editor={G. Gopalakrishnan and S. Qadeer},
+pages={585--591},
+publisher={Springer},
+series={LNCS},
+volume={6806},
+}

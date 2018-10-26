@@ -1,0 +1,16 @@
+@startuml
+start
+:System = Specify scenarios and global requirements in MSC;
+:Component = Specify scenarios and local requirements in MSC;
+:EC = Extend what-if scenarios and identify exceptional conditions;
+:Transform System, Component, EC into LTS models and properties automatically;
+while (Does Component satisfy global and local requirements?) is (no)
+  if (Can Component be reconfigured to address EC ?) then (no = defiant)
+    :Declare Wrapper Aspects on System, Component, and EC;
+    :Component = weave Component with Wrapper Aspect automatically;
+  else (yes)
+    :Component = reconfigure the Component;
+  endif
+endwhile (yes)
+stop
+@enduml
