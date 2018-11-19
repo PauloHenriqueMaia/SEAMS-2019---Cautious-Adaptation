@@ -1,3 +1,4 @@
+%!TEX root=main.tex
 \section{Cautious Adaptation Approach}
 
 %\subsection{Overview}
@@ -104,3 +105,11 @@ Based on aspect-oriented programming (AOP)~\cite{Kiczales:2001}, we introduce wr
 %Once the join points are identified, we can use regular expressions to express them as {\it point-cuts} so that a replacement of the behaviour after the join points can be done through aspect {\it advices}. Aspect advices in this situation are exceptional handling which can still invoke existing functionality of the original components, but can also introduce additional functions and conditions that do not exist in the original component. But the weaving of the aspect-oriented wrapper must be performed with caution. 
 
 In the situation in which there are more than one wrapper for the same exceptional condition, to avoid interference~\cite{Katz:2008:IAI:1394496.1394500}, we define a precedence order among wrappers. For example, a safety wrapper is regarded with a high-level of importance and should be applied afterwards, to override applied unsafe wrappers. 
+
+\subsection{Discussion about Self-Adaptation}
+
+Existing self-adaptive systems rely on a full monitoring-analysis-planning-execution (MAPE) feedback loop to continuously monitor the environment and switch to alternative solutions when the requirements are not satisfied.
+However, we observe that it is not always necessary to monitor the entire process. Given the prior knowledge of the environment, to reduce the monitoring and adaptation overhead, it is possible to monitor only part of the processes while switch to part of the solutions when the adaptation is required. 
+In this way, cautious adaption can be seen as a means towards more efficient self-adaptation.
+
+TODO. Can we evaluate the efficiency of self-adaptation by measuring the efficiency?
