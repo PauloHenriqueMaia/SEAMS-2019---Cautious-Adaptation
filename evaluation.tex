@@ -1,3 +1,4 @@
+%!TEX root=main.tex
 \section{Case Study}
 
 In this section we describe a running example of our payload organ delivery system-of-system. In the example, a drone is supposed to fly over Thames River (on the water), and the wind could be favorably strong. Suppose that the original specification of a drone component did not consider these characteristics. 
@@ -5,7 +6,7 @@ In this section we describe a running example of our payload organ delivery syst
 According to the process in Figure~\ref{fig:process}, we first specify the scenarios of the system and component and their extensions, as shown in Section 2.2, explicitly recording global (system) and local (component) requirements.
 
 The behaviour of the component represented in LTS is derived from the scenarios as LTS using Finite State Processes (FSP) specification language~\cite{Magee:2006:CSM:1076396}, as shown below: \\
-\begin{alltt}\small
+\begin{alltt}\tiny
 DRONE [b:Bat][d:Dis]\uwave{[o:On_Water][w:WindStrong]} =
     (takeOff -> FLYING[b-1][d]\uwave{[o][w]}),
 FLYING [b:Bat][d:Dis]\uwave{[o:On_Water][w:WindStrong]} = ( 
@@ -92,10 +93,11 @@ A change request is raised. However, the component cannot be reconfigured (it is
 
 To address this problem, we declare a wrapper aspect with two related parts (pointcuts and advices). {\it Pointcuts} are expressions that match with {\it join points} which can be enumerated on the specifications, i.e., the original LTS, as point of control where behaviours thereafter will be modified. {\it Advices} modifies the behaviours at the joint points to handle the exceptional conditions. 
 %A wrapper aspect is defined as follows:
-\hspace*{1cm}\begin{alltt}\small
+\hspace*{1cm}\begin{alltt}\footnotesize
 {\bf aspect} WRAPPER \{
   {\bf pointcuts} \{
-   ({\bf introduce}, \{o:On_Water, w:WindStrong | range 0..1\});
+   ({\bf introduce}, \{o:On_Water, w:WindStrong | range 0..1, 
+               b:BatteryLevel | range 0..10\});
    ({\bf uncertain}, \{FLYING: manoeuvre\}, \{o, w\});
    ({\bf error}, \{LANDING: landed\}, \{(d>0 && o==1 && w==1)\});
   \}
@@ -112,7 +114,7 @@ In the pointcuts part, the `introduce' primitive adds an additional boolean doma
 In the advices part, caution is taken so that the woven system addresses the problems of the defiant component on exceptional condition whilst maintaining expected functions for normal operations. Specifically, `and/or' primitives append AND/OR conditions to the guards, whilst `opt' primitives append new options as required by the what-if scenarios.
 After weaving the wrapper, the new LTS model is presented below with its differences highlighted: (curly)\\
 
-\begin{alltt}\small
+\begin{alltt}\tiny
 DRONE' [b:Bat][d:Dis][o:On_Water][w:WindStrong] = 
      (takeOff -> FLYING[b-1][d][o][w]),
 FLYING [b:Bat][d:Dis][o:On_Water][w:WindStrong] = (       
