@@ -1,33 +1,53 @@
 %!TEX root=main.tex
 \section{Cautious Adaptation Approach}
 
-%\subsection{Overview}
+Given a component that does not satisfy the global requirements of a system, although it is necessary to use the component. We call this component {\em defiant} if it can still be modified by adapting the system wrapping around it. In general, when a self-adaptive system can have multiple components that need to be adapted to its global requirement, however, none of them alone can achieve this demand. In this section, we lay out a step-wise approach to address this problem (see an overview in Figure~\ref{fig:process}).
 
-Our approach uses scenarios to formalise both exceptional and normal conditions of systems-of-systems, which have been widely used for modelling {\it what-if} situations. Given the similarities between exceptional and what-if conditions, the approach uses existing formal method techniques, like feedback-driven implied scenario resolutions~\cite{uchitel:2013}, to verify scenarios represented as message sequence charts (MSC) translated into labelled transition systems (LTS), with respect to safety and liveness properties. 
+\subsection{Overview}
+
+Initially, we aim to model the core functional requirements for the self-adaptive system, and the local requirements for each component using scenarios. They formalise both exceptional and normal conditions of the system, which have been widely used for modelling {\it what-if} situations. 
+
+The verification of the satisfaction arguments of global requirements and local requirements provides designer a formal basis to tell whether or not defiant behaviour exists in the components, and whether or not addressing the defiant behaviours (i.e., an off-the-shelf component cannot satisfy the global requirements out of the box). 
+
+The process to address a defiant component is divised into two phases, the design-time phase uses scenarios to model the system for formally verifying the defiant behaviour problems and the self-adaptive solutions; the run-time phase deploys the self-adaptive solutions to incorporate sensors and actuators to form a MAPE-K loop.  
+
+It assumes the use of off-the-shelf software components, with predefined requirements and specifications. 
+Assuming that high-level message sequence charts (hMSC) and basic message sequence charts are used to model the defiant behaviour in the system.  Given the similarities between exceptional and what-if conditions, the approach uses existing formal method techniques, like feedback-driven implied scenario resolutions~\cite{uchitel:2013}, to verify scenarios represented as message sequence charts (MSC) translated into labelled transition systems (LTS), with respect to safety and liveness properties. 
 %\textbf{Note: we need a justification here!}
 The reason for converting scenarios into LTS formally is to facilitate the correctness checks of the model before and after the adaptation.
 
-Figure~\ref{fig:process} gives an overview of the process of the approach. It assumes the use of off-the-shelf software components, with predefined requirements and specifications. The scenarios representing the system (with the off-the-shelf components) are transformed into LTS behaviour models, and requirements are transformed into properties. The what-if situations marks exceptional conditions on an extension of the scenario models, which will also be transformed into safety properties in LTS.
-A model checker is applied to verify whether the off-the-shelf component can also satisfy  global requirements of the system-of-system, for which not necessarily it was designed. In the case when the component satisfies the requirements, it can be used as-is in the system-of-system. 
+The scenarios representing the system (with the off-the-shelf components) are transformed into LTS behaviour models, and requirements are transformed into properties. Then the design-time phase to address a defiant behaviour includes four steps, as follows. 
+\begin{itemize}
+\item {\bf Monitoring contextual variables.} In this step, contextual variables for analysing the global requirements are elicited such as battery levels, distance to destination, drone is on water or not, and whether or not the wind is favorable, etc.  These variables may not be available or used for analysing the local requirements of the component. Nonetheless, from a bigger picture usually they are critical to tell the satisfaction of the global requirements. 
+\item {\bf Analysing exceptional conditions.} 
+The situations when the satisfaction of local requirements denies the satisfaction of global requirements are analysed to identify the exceptional conditions. The what-if situations marks exceptional conditions on an extension of the scenario models, which will also be transformed into safety properties in LTS.  E.g., battery level is lower than 10\%, distance to destination is smaller than 2km, the drone is on the water, and the wind is favourable to cover the remaining distance with fewer power. The combination of these conditions would trigger a sitatuion that it is in fact possible to satisfy the global requirements by the drone, only if some of its existing safety assumption is updated. In the opposite case, the failed checks are used to identify how to deal with exceptional conditions. %From the counter examples provided by the model checker (i.e., sequences of actions that lead to failures), software designers can inspect which of the actions can be avoided by negating the conditions that trigger these action in the behavioural model. These triggered conditions are combined to form exceptional conditions. The negation of an exceptional condition is considered as a normal condition.
+\item {\bf Planning adaptation actions.} In this step, the exceptions can be addressed by executing changes in the component. If the component can be reconfigured, its model is checked against required properties. Using the existing functionalities such as maneuveuring, while disabling certain functionaties such as safe landing, it is possible to switch to a different solution through adaptation. Such adapations are modelled as advices such as before / around of existing functionalities/actions in the adapted component.  
+\item {\bf Simulating circumventing behaviours.} Under exceptional conditions the alternative adaptation actions need to be called, however, the existing component is not designed to be adaptable. In this step we uses aspect-oriented mechanisms to weave the changes into the system behaviours and pass the modified behavioural model back to the verification step. Note that this step is still performed at the design time, therefore we cannot call it ``execution", but it is corresponding to the execution step of the MAPE self-adaptive system at the runtime.
+\end{itemize}
 
-In the opposite case, the failed checks are used to identify how to deal with exceptional conditions. %From the counter examples provided by the model checker (i.e., sequences of actions that lead to failures), software designers can inspect which of the actions can be avoided by negating the conditions that trigger these action in the behavioural model. These triggered conditions are combined to form exceptional conditions. The negation of an exceptional condition is considered as a normal condition.
-In the next step, the exceptions can be addressed by executing changes in the component. If the component can be reconfigured, its model is checked against required properties. 
+A model checker is applied to verify whether the off-the-shelf component can also satisfy  global requirements of the system-of-system, for which not necessarily it was designed. In the case when the component satisfies the requirements, it can be used as-is in the system-of-system. However, when the component cannot be changed (i.e., the case of a defiant component), a wrapper is specified in order to weave exceptional conditions into the component specification in LTS, and it is verified by the LTSA model checker against the properties.  The adaptation is considered {\it cautious} only when {\bf all} the properties (local and global) are satisfied by the component within the system-of-system context. The verification step is considered successful, that is, the defiant behaviours can be addressed by design-time simulation and verifications. 
 
-However, when the component cannot be changed (i.e., the case of a defiant component), a wrapper is specified in order to weave exceptional conditions into the component specification in LTS, and it is verified by the LTSA model checker against the properties.  The adaptation is considered {\it cautious} only when {\bf all} the properties (local and global) are satisfied by the component within the system-of-system context.
+However, there are still two additional steps to be added before it can be deployed to the runtime.
+
+\begin{itemize}
+\item {\bf Sensing contexts.} The contextual variables identified at the design-time must be observable directly or indirectly using dedicated sensors. If they are in place, appropriate interpretation of the readings need to be added to relate the observed behaviours with the monitored properties.
+\item {\bf Actuating controls.} Similarly, the controls in the system need to be added to wrapper around the defiant components when necessary. With such wrapping, the input to the original component may need to be filtered so that, without internal changes to the component, the composed wrapper would satisfy the global requirements the original component is not aware of. 
+\item {\bf Aspect execution engine.} Connecting the components and the wrapper together is the role of aspect execution engine, which not only ensure that the design-time model are faithfully executed at the runtime, but also potential conflicts between the wrappers of multiple defiant components are handled properly. 
+\end{itemize}
+
+Therefore, the cautious adaptation approach involves designing a wrapper aspect, which is defined by a specification of the pointcuts and advices on the scenarios, and transforming them into LTS specifications by extending the previous work of scenario to LTS translation. After that, the LTS specifications of both the global context and the wrapped component will be used to check, formally, whether or not the adapted system satisfy the safety properties of both the global requirements in the exceptional conditions and the local requirements in the normal conditions.
 
 %First, when an off-the-shelf component is used in an emergent global system, scenarios are specified with respect to the global and local requirements.By transforming these scenarios into LTS behaviour models, along with their requirements transformed into properties, we use model checker to tell whether the off-the-shelf component can satisfy the global requirements, which it was not designed for. Upon failure to satisfy the requirements, the designer can ask it to change its behaviour. However, resisting to the change request, the designer has to identify the component as a defiant component, and treat it cautiously.
 
-%The cautious adaptation in our approach involves designing a wrapper aspect, which is defined by a specification of the pointcuts and advices on the scenarios, and transforming them into LTS specifications by extending the previous work of scenario to LTS translation. After that, the LTS specifications of both the global context and the wrapped component will be used to check, formally, whether or not the adapted system satisfy the safety properties of both the global requirements in the exceptional conditions and the local requirements in the normal conditions.
-
-\begin{figure}
- \includegraphics[width=0.9\columnwidth]{figures/activity.eps}
- \caption{Overview of the approach in an activity diagram}
+\begin{figure*}[h]\centering
+% \includegraphics[width=0.9\columnwidth]{figures/activity.eps}
+ \includegraphics[width=0.8\textwidth]{figures/workflow}
+ \caption{Overview of the cautious adaptation approach in a workflow diagram}
  \label{fig:process}
  \vspace*{-0.5cm}
-\end{figure}
+\end{figure*}
 
 %Our approach to cautious adaptation of a defiant component is explained below.
-
 
 %illustrates the main constructs and relationships between the defiant component and the wrapper framework. The cautious adaptation weaving is responsible of 1) exposing the exceptional conditions of defiant component; 2) identifying the failure of the defiant component under the exceptional conditions; and 3) modifying the functionality of the defiant component to satisfy both exceptional and normal conditions. All these responsibilities can be defined as properties in the behaviour models that can be checked formally. 
 
