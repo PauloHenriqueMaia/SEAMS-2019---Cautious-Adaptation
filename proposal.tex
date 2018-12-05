@@ -84,60 +84,65 @@ W_c \setminus W_s, S_{w(c)} \models R_c & (\mbox{safety assurance})
 \end{itemize}
 
 \subsection{Scenario Extensions on MSC}
-To support the method, we extend the message sequence chart (MSC) specification with an operator (o) to represent an \textit{interception point} in which exceptional scenarios can be plugged to wrap the defiant component. Several exceptional behaviours can be plugged in the same interception point, indicating other possible behaviours according to alternative contexts. If there is no exceptional scenario plugged in an interception point, the expected default behaviour is performed.
+To support the method, we extend the message sequence chart (MSC) specification with a decision point  to represent an \textit{interception point} in which exceptional conditions can be added around the defiant component. 
 
-Figure~\ref{fig:drone_msc} shows part of high-level message sequence charts (hMSC) specification for the payload organ delivery scenario discussed in Section 1. Each box in the hMSC corresponds to a basic message sequence chart (bMSC), like UML sequence diagrams, exchanging messages between different entities, whilst the bMSC are put together through control flows (branches and loops). Figure~\ref{fig:drone_bmsc} depicts the referred bMSCs for part of the drone payload delivery example.   
-% Need one example bMSC. 
-
-\begin{figure}
+Several exceptional conditions can be intercepting in the same decision point, indicating other possible behaviours according to alternative contexts. If there is no exceptional scenario plugged in an interception point, the expected default behaviour is performed.
+\begin{figure*}[h]\centering
 %    \includegraphics[width=\columnwidth]{figures/new_drone_msc.png}
- \includegraphics[width=\columnwidth]{figures/1-hMSC-Drone.png}
-    \caption{hMSCs for the drone scenario}
-    \label{fig:drone_msc}
+ \includegraphics[width=0.8\textwidth]{figures/1-hMSC-Drone.png}
+    \caption{Extended hMSCs for the drone scenario. Each box defines a basic message sequence, while a transition between the boxes is marked by a guard condition (e.g., $b>10 \wedge d>0$ and an action, e.g., $\{ b'=b-1\}$. The black dot in the middle is added to separate the normal condition $b\leq 10$ into three exceptional conditions, namely, $d\leq 2 \wedge onWater=1 \wedge strongWind=1$, $d>2 \wedge onWater=1$, and otherwise. Each exceptional condition introduces a different basic message sequence box. 
+E.g., Keep Flying and Move Aside are two handlers of these two exceptional conditions. After exceptions are handled, the control may not return to the original target sequence. E.g., Keep Flying will return control to Landed, circumventing the original Safe Landing sequence. }
+    \label{fig:hmsc}
     \vspace*{-0.25cm}
-\end{figure}
+\end{figure*}
 
-\begin{figure}
- \includegraphics[width=\columnwidth]{figures/2-LoTuS.png}
-    \caption{LoTus}
-    \label{fig:lotus}
-    \vspace*{-0.25cm}
-\end{figure}
-
-\begin{figure}
- \includegraphics[width=\columnwidth]{figures/3-parameterized-LTS.png}
-    \caption{Parameterised LTS}
-    \label{fig:pLTS}
-    \vspace*{-0.25cm}
-\end{figure}
-
-\begin{figure}
- \includegraphics[width=\columnwidth]{figures/4-Land -final-LTS.png}
-    \caption{LTS of Landing}
-    \label{fig:landing}
-    \vspace*{-0.25cm}
-\end{figure}
-
-\begin{figure}
- \includegraphics[width=\columnwidth]{figures/5-Keep Flying -final-LTS.png}
-    \caption{LTS of Keep Flying}
-    \label{fig:keepflying}
-    \vspace*{-0.25cm}
-\end{figure}
-
-\begin{figure}
- \includegraphics[width=\columnwidth]{figures/6-Move Aside -final-LTS.png}
-    \caption{LTS of Moving Aside}
-    \label{fig:movingaside}
-    \vspace*{-0.25cm}
-\end{figure}
-
+Figure~\ref{fig:hmsc} shows part of high-level message sequence charts (hMSC) specification for the payload organ delivery scenario discussed in Section 1. Each box in the hMSC corresponds to a basic message sequence chart (bMSC), like UML sequence diagrams, exchanging messages between different entities, whilst the bMSC are put together through control flows (branches and loops). 
+%Figure~\ref{fig:drone_bmsc} depicts the referred bMSCs for part of the drone payload delivery example.   
 %\begin{figure}
 %    \includegraphics[width=\columnwidth]{figures/new_drone_bmsc.png}
 %    \caption{bMSCs for the drone delivery scenario}
 %    \label{fig:drone_bmsc}
 %    \vspace*{-0.5cm}
 %\end{figure}
+% To move into implementation section
+We have developed LoTuS, an integrated development environment that supports the modeling of the extended hMSC, for what-if scenario analysis.
+Figure~\ref{fig:lotus} displays a screenshot when the tool is being used to create the model in Figure~\ref{fig:hmsc}.
+\begin{figure*}
+ \includegraphics[width=0.8\textwidth]{figures/2-LoTuS.png}
+    \caption{LoTus: an IDE for modeling the extended MSCs. The project explore navigation view on the left shows the specification of individual bMSCs. }
+    \label{fig:lotus}
+    \vspace*{-0.25cm}
+\end{figure*}
+
+\begin{figure*}
+ \includegraphics[width=\textwidth]{figures/3-parameterized-LTS.png}
+    \caption{Parameterised LTS illustrates the behaviours when the contextual variables are parameters bound to user specified constants. }
+    \label{fig:pLTS}
+    \vspace*{-0.25cm}
+\end{figure*}
+
+\begin{figure*}
+ \includegraphics[width=0.8\textwidth]{figures/4-Land-final-LTS.png}
+    \caption{LTS of Landing: the partial behaviour of landing bMSC, where the unnamed transitions are the transitions between different bMSCs. Though an $\epsilon$-reduction, these transitions will be removed.}
+    \label{fig:landing}
+    \vspace*{-0.25cm}
+\end{figure*}
+
+\begin{figure*}
+ \includegraphics[width=0.8\textwidth]{figures/5-KeepFlying-final-LTS.png}
+    \caption{LTS of Keep Flying in LoTuS: user can specify the values of contextual variables interactively, which resulting in a different LTS when the ``Run'' button is clicked. Note that we are not executing the behaviour model, only simulating it at the design time.}
+    \label{fig:keepflying}
+    \vspace*{-0.25cm}
+\end{figure*}
+
+\begin{figure*}
+ \includegraphics[width=0.8\textwidth]{figures/6-MoveAside-final-LTS.png}
+    \caption{LTS of Moving Aside behaviour modelled in LoTuS. It is the results of a different context where the values of the contextual variables are different from Keep Flying.}
+    \label{fig:movingaside}
+    \vspace*{-0.25cm}
+\end{figure*}
+
+==========================
 
 In Figure~\ref{fig:drone_msc}, the predefined scenarios are represented by a full rectangle and are part of the normal specification of a drone, while the exceptions are represented by dashed rectangles. As shown in Figure~\ref{fig:drone_msc}, through a controller the pilot can control the drone to take off, and can manoeuvre the drone when the battery is above a certain threshold $\theta = 10\%$, while it has not reached the destination. When the pilot sends a landing command to the drone, this is acknowledged when the drone lands in the ground.  During a flight, a drone periodically checks the status of its internal devices such as battery level and distance from the destination, represented by \textit{b} and \textit{d}, respectively, in the guard conditions over the transitions. In the example, if the battery level is above the expected threshold and the drone is not yet in its destination, the drone keeps flying. If the drone reaches its destination, it performs a landing action. If the battery is below the expected threshold, the drone performs a safe landing in accordance to its predefined specification. 
 
