@@ -90,18 +90,54 @@ Figure~\ref{fig:drone_msc} shows part of high-level message sequence charts (hMS
 % Need one example bMSC. 
 
 \begin{figure}
-    \includegraphics[width=\columnwidth]{figures/new_drone_msc.png}
+%    \includegraphics[width=\columnwidth]{figures/new_drone_msc.png}
+ \includegraphics[width=\columnwidth]{figures/1-hMSC-Drone.png}
     \caption{hMSCs for the drone scenario}
     \label{fig:drone_msc}
     \vspace*{-0.25cm}
 \end{figure}
 
 \begin{figure}
-    \includegraphics[width=\columnwidth]{figures/new_drone_bmsc.png}
-    \caption{bMSCs for the drone delivery scenario}
-    \label{fig:drone_bmsc}
-    \vspace*{-0.5cm}
+ \includegraphics[width=\columnwidth]{figures/2-LoTuS.png}
+    \caption{LoTus}
+    \label{fig:lotus}
+    \vspace*{-0.25cm}
 \end{figure}
+
+\begin{figure}
+ \includegraphics[width=\columnwidth]{figures/3-parameterized-LTS.png}
+    \caption{Parameterised LTS}
+    \label{fig:pLTS}
+    \vspace*{-0.25cm}
+\end{figure}
+
+\begin{figure}
+ \includegraphics[width=\columnwidth]{figures/4-Land -final-LTS.png}
+    \caption{LTS of Landing}
+    \label{fig:landing}
+    \vspace*{-0.25cm}
+\end{figure}
+
+\begin{figure}
+ \includegraphics[width=\columnwidth]{figures/5-Keep Flying -final-LTS.png}
+    \caption{LTS of Keep Flying}
+    \label{fig:keepflying}
+    \vspace*{-0.25cm}
+\end{figure}
+
+\begin{figure}
+ \includegraphics[width=\columnwidth]{figures/6-Move Aside -final-LTS.png}
+    \caption{LTS of Moving Aside}
+    \label{fig:movingaside}
+    \vspace*{-0.25cm}
+\end{figure}
+
+%\begin{figure}
+%    \includegraphics[width=\columnwidth]{figures/new_drone_bmsc.png}
+%    \caption{bMSCs for the drone delivery scenario}
+%    \label{fig:drone_bmsc}
+%    \vspace*{-0.5cm}
+%\end{figure}
 
 In Figure~\ref{fig:drone_msc}, the predefined scenarios are represented by a full rectangle and are part of the normal specification of a drone, while the exceptions are represented by dashed rectangles. As shown in Figure~\ref{fig:drone_msc}, through a controller the pilot can control the drone to take off, and can manoeuvre the drone when the battery is above a certain threshold $\theta = 10\%$, while it has not reached the destination. When the pilot sends a landing command to the drone, this is acknowledged when the drone lands in the ground.  During a flight, a drone periodically checks the status of its internal devices such as battery level and distance from the destination, represented by \textit{b} and \textit{d}, respectively, in the guard conditions over the transitions. In the example, if the battery level is above the expected threshold and the drone is not yet in its destination, the drone keeps flying. If the drone reaches its destination, it performs a landing action. If the battery is below the expected threshold, the drone performs a safe landing in accordance to its predefined specification. 
 
