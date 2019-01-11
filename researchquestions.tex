@@ -1,0 +1,49 @@
+\subsection{(Candidate) Research Questions}
+
+\begin{itemize}
+\item {\bf RQ1.} Can defiant behaviour be identified from the modeling of the scenarios of the component and its environment (including the  other components in the global system)? 
+
+\item {\bf RQ2.} Is it possible to resolve definant behaviours by creating a wrapper to satisfy the global requirements using existing defiant components?
+
+\item {\bf RQ3.} If possible, how many changes are required to adapt the behaviour of a defiant component? Would such adapation benefit from having aspect-oriented wrappers?
+
+\item {\bf RQ4.} Can the simulation of the self-adaptive aspect-oriented wrappers be implemented using aspect-oriented programming?
+
+\item {\bf RQ5.} Can multiple aspect-oriented wrappers be applied to a more complex scenario correctly, and efficiently? 
+\end{itemize}
+
+\subsection{Evaluation}
+
+\begin{itemize}
+\item {\bf RQ1.} {\em Can defiant behaviour be identified from the scenarios of the component and its environment (including the  other components in the global system)? }
+
+At the design time, we need to define the verifiable FSP properties that can be checked by the LTSA model checker.
+
+At the runtime, we need to define the  monitoring conditions of the involved context variables based on the sensor readings, so that when the monitoring conditions are
+triggering the defiant behaviours (traced to the execution of scenarios) are identified. We need to define necessary and sufficient conditions. 
+
+\item {\bf RQ2.} {\em Is it possible to resolve definant behaviours by creating a wrapper to satisfy the global requirements using existing defiant components?}
+
+At the design time, we need to model check the property that the composed scenarios do not violating the global requirements.
+
+At the runtime, we need to ensure that the analysis can be done efficiently. Is it possible to use BDD to reduce the runtime requirements satisfaction down to a decision tree model that is efficient to compute? 
+
+\item {\bf RQ3.}{\em  If possible, how many changes are required to adapt the behaviour of a defiant component? Would such adapation benefit from having aspect-oriented wrappers?}
+
+At the design time, we need to measure the number of changes introduced to the behaviour model of a defiant component, with or without aspect-oriented wrappers.
+
+At the runtime, we need to justify the extra indirection due to the aspect invocation. 
+
+\item {\bf RQ4.} {\em Can the simulation of the self-adaptive aspect-oriented wrappers be implemented using aspect-oriented programming?}
+
+At the design time, we need to measure the number of changes introduced to the behaviour model of a defiant component, with or without aspect-oriented wrappers.
+
+At the runtime, we need to justify the extra indirection due to the aspect invocation does not causing too much overhead.
+
+\item {\bf RQ5.} {\em Can multiple aspect-oriented wrappers be applied to a more complex scenario correctly, and efficiently? }
+
+At the design time, we need to check the adverse condition of ``feature interaction'' does not matter to the composition of aspect wrappers.
+
+At the runtime, we need to justify enforce the reliability / resilience of execution of the aspect compositions. 
+\end{itemize}
+

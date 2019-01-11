@@ -14,7 +14,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Cautious adaptation of a Defiant Component}
+\title{Cautious Adaptation of Defiant Components}
 
 \author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
 \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
@@ -55,19 +55,23 @@ email address}
 
 \maketitle
 
+%\begin{abstract}
+%Systems-of-systems are formed by the composition of independently created software components into a single system. Generally, the participating components are designed to satisfy their own requirements, and may not satisfy the overall requirements of the system-of-systems. We refer to components that cannot be adapted to meet both individual and global requirements as ``defiant" components. We then propose an adaptation approach that supports changing the behaviour of such defiant components under exceptional conditions. The approach uses scenarios to represent normal/ exceptional conditions, and models the behaviour of the exceptional conditions as wrappers implemented using an aspect-oriented technique. We refer to such adaptation as ``cautious", as it continues to guarantee the satisfaction of the original requirements of the components, while extending satisfaction to the exceptional conditions. We illustrate our approach and provide a preliminary evaluation of its feasibility using an organ delivery drone application.
+%\end{abstract}
+
 \begin{abstract}
-This document is a model and instructions for \LaTeX.
-This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
-or Math in Paper Title or Abstract.
+Systems-of-systems are formed by the composition of independently created software components into a single system. These participating components are designed to satisfy their own requirements, and may not satisfy the overall requirements of the system-of-systems. We refer to components that cannot be adapted to meet both individual and global requirements as ``defiant" components. We propose a cautious adaptation approach that supports changing the behaviour of such defiant components under exceptional conditions to satisfy global requirements, while it continues to guarantee the satisfaction of the component's individual requirements. The approach uses scenarios to represent normal and exceptional conditions; models the behaviour of exceptional conditions as wrappers implemented using aspect-oriented technique; and executes runtime cautious adaptation. In the work, we consider both single and multiple defiant components, with several instances of these components operating at the same time. The implementation of the approach has been evaluated by using an organ delivery drone application. Results of the evaluation are presented and discussed in the paper. 
 \end{abstract}
 
 \begin{IEEEkeywords}
-component, aspect 
+Defiant Component, Adaptation, Scenarios, Aspects 
 \end{IEEEkeywords}
 
 \input{introduction}
+%\input{background}
 %\input{motivatingexample}
 \input{proposal}
+\input{detailedprocess}
 \input{evaluation}
 \input{relatedwork}
 \input{conclusion}
