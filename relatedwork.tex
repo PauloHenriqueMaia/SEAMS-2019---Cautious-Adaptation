@@ -1,4 +1,33 @@
-% \section{Related work}
+%!TEX root=main.tex
+\section{Related work}
+In this section, we compare existing work in the literature that are related to the concept of cautious adaptation of defiant components. 
+\subsection{Self-Adaptive Systems}
+%Discuss papers that use self-adaptive systems + AOP.
+Self-adaptive systems typically use one or several MAPE-K feedback loops to control the uncertainty at runtime~\cite{SAS}. Although MAPE-K provides the resilience needed at runtime, it is argued that their introduction needs to be based on the requirements such as functional and non-functional goals~\cite{requirements-drivenSAS}. While it is relatively easy to list abstract goals such as safety and security as requirements, in practice, it is harder to pinpoint concrete measurable observations in relation to them~\cite{challengesinSAS}. In view of traceability, our approach provides scenario-based analysis as a medium to identify contextual variables to monitor on behaviour models and requirement properties to analyse as verifiable properties, and results in planning/execution actions through the wrappers that modify the defiant behaviours properly.
+
+\subsection{System of Systems}
+Andrea to add: definition of SoS and a few challenges in SoS development with respect to self-adaptive systems.
+
+\subsection{Legacy Systems and Components}
+Once system is deployed they are considered as legacy systems~\cite{legacy-systems}. When they encounter emerging problems typically goes back to their developers for a resolution. However, it is not always feasible for legacy components that do not fit for the purposes by the original developers because the commodity products void their warranty if they are used beyond the designed purposes. Furthermore, it is often not a business proposition for the developers to customize the product for specific needs. 
+
+Retrofitting a legacy system built by others to new purposes is considered as {\em re-engineering}~\cite{reengineering}, which requires {\em reverse engineering} to gain the knowledge to modify it. However, in self-adaptive scenarios, changes are no longer rare. In fact, it is meant for the components to adapt to the exceptional conditions. In this regards, neither re-engineering nor reverse engineering can be affordable continuously at runtime.
+
+\subsection{Instrumentation techniques and AOP}
+When the legacy system needs to be modified after its production, {\em instrumentation} techniques~\cite{instrumentation} are typically applied. Amongst these techniques, aspect-oriented programming (AOP)~\cite{Kiczales:2001} and dependency injection (DI)~\cite{fowlerioc} are typically used when it is not allowed to hack the design of original system intrusively~\cite{hacking}. Both AOP and DI could modify the behaviour of the original design of the programs, while AOP can be applied to both source and binary code, DI is supported that assumes reflection mechanisms of the programming languages~\cite{AOPvsDI}. Therefore, AOP is chosen for implementing the adaptation concept. Compared to a plain application of AOP, our approach introduces additional ``caution" by checking, proactively, that both local and global requirements of the system are satisfied for normal and exceptional conditions of the environment. 
+
+\subsection{Safety Assurance of Drones}
+Formal methods have been applied to provide assurance for requirements satisfaction~\cite{FM}. Most of safety methods are applied at the requirement analysis stage and assumed at design time by requirements traceability as safety cases~\cite{traceability}. However, runtime assurance of required properties is typically weakened by exceptional conditions. Scenarios have been applied to address these exceptional conditions formally; however, as we pointed out, such application of scenarios was not enforced by the runtime system due to the black box nature of legacy system. Our approach, as demonstrated, makes the early connection between scenario-based assurance of formal properties and their practical enforcement through wrapper executions in simulation.
+
+Safety requirements, among many functional and non-functional requirements, are critical for transportation systems such as drones~\cite{Survey}. Although several attempts exist for safety assurance, incidents of drones still happen, often lead to interference to other transport systems in the system of systems settings such as passenger aircraft and airports~\cite{GatwickIncident}. In such cases, the protection of drones can be seen as a rather narrowed view of safety with respect to a broader, and much more challenging safety and other critical requirements for the system of systems. The running example of organ delivery illustrates that it is not sufficient to consider just the safety cases of the drones. A self-adaptive system of systems should, and have to address the global requirements as well.
+
+\subsection{Simulation of defiant drones for safety requirements}
+While a swarm of drones are difficult to be experimented with, simulation is a recognized way to assure the function before physical tests in sky. Drone simulations such as Droneology~\cite{Cleland-Huang18NIER} are an established way to simulate up to 100 drones for critical safety properties such as separation of distances to detect and avoid. Although we simulate up to 200 drones for several exceptional conditions, these conditions may be much worse-case scenarios to expose even more risks that are not easy to be experienced in a physical simulation environment since the odds may not meet all adversarial conditions. Therefore, our approach provides the ``wrapper'' needed around the drones for potentially much more conservative assurance cases. On the other hand, it is also recognized that drones can be used in many contextual scenarios for different tasks~\cite{droneapplications}; therefore, the global requirements are likely to be more diversified, with more exceptional scenarios making the drones defiant.
+
+%Discuss papers that use scenarios + AOP.
+
+%Discuss papers that use scenarios + self-adaptive systems.
+
 
 % In ~\cite{John:2004} the authors propose an agent‐ based modeling for capturing and identifying and assessing emergent behaviours in SoS... 
 
